@@ -6,20 +6,18 @@ if (!process.env.MONGODB_URI) {
 const uri = process.env.MONGODB_URI;
 const dbName = process.env.MONGODB_DB || "test";
 
-// Cache the client across hot reloads in development (prevents new connections per file change)
 declare global {
   var _mongoClientPromise: Promise<MongoClient> | undefined;
 }
 
 let client: MongoClient;
-let clientPromise: Promise<MongoClient>;
 
 if (!global._mongoClientPromise) {
   client = new MongoClient(uri, {
   });
   global._mongoClientPromise = client.connect();
 }
-clientPromise = global._mongoClientPromise;
+const clientPromise = global._mongoClientPromise;
 
 export async function getClient(): Promise<MongoClient> {
   return clientPromise;
