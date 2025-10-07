@@ -14,7 +14,7 @@ export default function CreateNotePage() {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('/api/notes', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/notes`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

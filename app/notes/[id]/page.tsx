@@ -6,7 +6,7 @@ import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 
 async function getNote(id: string): Promise<{ data: Note }> {
-  const res = await fetch(`http://localhost:3000/api/notes/${id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/notes/${id}`, {
     cache: 'no-store',
   });
   

@@ -21,7 +21,7 @@ export default function EditNotePage({ params }: EditNotePageProps) {
   useEffect(() => {
     async function fetchNote() {
       try {
-        const response = await fetch(`/api/notes/${params.id}`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/notes/${params.id}`);
         if (response.ok) {
           const data = await response.json();
           setNote(data.data);
