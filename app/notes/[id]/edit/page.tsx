@@ -18,6 +18,8 @@ export default function EditNotePage({ params }: EditNotePageProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+
+
   useEffect(() => {
     async function fetchNote() {
       try {
