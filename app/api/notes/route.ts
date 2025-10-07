@@ -26,7 +26,7 @@ interface NotesFilter {
   search?: string;
   tag?: string;
   page?: string;
-  [key: string]: string | undefined; 
+  [key: string]: string | undefined;
 }
 
 export async function GET(request: NextRequest) {
@@ -48,7 +48,7 @@ export async function GET(request: NextRequest) {
     }
 
     if (search) {
-      filter.search = search ;
+      filter.search = search;
     }
 
     const notes = await Note.find(filter)
